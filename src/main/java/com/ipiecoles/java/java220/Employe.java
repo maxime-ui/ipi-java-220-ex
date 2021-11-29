@@ -7,11 +7,14 @@ import java.util.Objects;
 public abstract class Employe {
 
     public static String derniermatricule;
+
     private String nom;
     private String prenom;
     private String matricule;
     private LocalDate dateEmbauche;
     private Double salaire;
+    private Boolean tempsPartiel;
+    private String sexe;
 
     //constructeur
     public Employe() {
@@ -26,9 +29,34 @@ public abstract class Employe {
         this.salaire = salaire;
     }
 
+    public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, Boolean tempsPartiel, String sexe) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.matricule = matricule;
+        this.dateEmbauche = dateEmbauche;
+        this.salaire = salaire;
+        this.tempsPartiel = tempsPartiel;
+        this.sexe = sexe;
+    }
+
 
     //setter getter
 
+    public Boolean getTempsPartiel() {
+        return tempsPartiel;
+    }
+
+    public void setTempsPartiel(Boolean tempsPartiel) {
+        this.tempsPartiel = tempsPartiel;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
 
 
     public String getNom() {
@@ -85,6 +113,7 @@ public abstract class Employe {
         sb.append(", matricule='").append(matricule).append('\'');
         sb.append(", dateEmbauche=").append(dateEmbauche);
         sb.append(", salaire=").append(salaire);
+        sb.append(",sexe= ").append(sexe);
         sb.append('}');
         return sb.toString();
     }
